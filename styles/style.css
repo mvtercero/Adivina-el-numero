@@ -72,7 +72,9 @@ flex-direction: column;
 
 .form-name {
   width: 60%;
-
+}
+.hidden {
+  display:none;
 }
 
 #cell-number, #cell-extra {
@@ -81,11 +83,6 @@ flex-direction: column;
   padding-right: 10px;
 }
 
-
-
-.button-number {
-
-}
 
 .button-name {
 width: 40%;
