@@ -1,4 +1,80 @@
-'use strict',
+'use strict';
+
+// generar un número aleatorio con la ayuda de Math.random y Math.ceil
+// al pulsar el botón de prueba comparamos el número que el usuario ha escrito en el input con el número aleatorio, y pintamos el feedback correspondiente en la pantalla ("demasiado alto", "demasiado bajo", "acertado")
+// actualizamos el contador de intentos cada que el usuario pruebe
+
+// Número al azar
+
+
+function getRandomArbitrary(min, max) {
+return Math.ceil(Math.random() * (max - min)) + min;
+}
+
+var numberRandom = getRandomArbitrary(1,100);
+
+// Cuando el usuario pulsa el botón de prueba, se compara el número del input con el número al azar
+
+var buttonNumber = document.querySelector('.buttonNumber');
+buttonNumber.addEventListener('click', checkNumber);
+
+// function showNumber(){
+//   alert (numberRandom);
+// }
+
+// Para comparar el valor del imput value hay que convertirlo a número con parseInt.
+var inputUserNumber = document.querySelector ('#cellNumber');
+
+// se compara el número del input con el número al azar. Si es mayor la pantalla muestra ("demasiado alto") si es menor, la pantalla muestra "demasiado bajo", si es igual la pantalla muestra "acertado")
+
+// var inputUserNumber = document.querySelector ('#cellNumber');
+// inputUserNumber.addEventListener ('click', checkNumber);
+
+var textClue = document.querySelector ('.clue-cell');
+var counterPlus= document.querySelector ('.counter');
+var counterAcumulator= 0;
+
+// En rojo en la esquina superior derecha aparece el número de intentos realizados. Cuando consigue acertar, aparece una sección sobre las pistas para introducir el nombre y guardar la puntuación en el histórico.
+
+function checkNumber(){
+  counterAcumulator= counterAcumulator+1;
+  counterPlus.innerHTML= counterAcumulator;
+
+  var valueUserNumberAsString = inputUserNumber.value;
+  var valueUserNumber = parseInt (valueUserNumberAsString);
+
+  if (valueUserNumber > numberRandom){
+    textClue.innerHTML= "Tu número es demasiado alto";
+  } else if (valueUserNumber < numberRandom) {
+    textClue.innerHTML= "Tu número es demasiado bajo";
+  } else if (valueUserNumber === numberRandom){
+    textClue.innerHTML= "¡Has acertado!";
+    var showButtonName= document.querySelector('.form-name');
+    showButtonName.classList.remove('hidden');
+  }
+  alert (numberRandom);
+};
+
+// En rojo en la esquina superior derecha aparece el número de intentos realizados. Cuando consigue acertar, aparece una sección sobre las pistas para introducir el nombre y guardar la puntuación en el histórico.
+
+
+// cuando el jugador escriba su nombre y pulse en guardar, almacenaremos el nombre del jugador y el número de intentos en una estructura de datos; recomendamos usar un objeto para almacenar la información de cada elemento del histórico (nombre e intentos)
+
+var player= document.querySelector('rankingList');
+
+elementList.innerHTML
+
+var user = {
+  firstname: "Elena",
+  firstname2: "Irene",
+  lastname: "Veiga",
+  age: 32,
+  job: job,}
+
+
+
+
+
 
 // HISTÓRICO
 

@@ -45,7 +45,7 @@ h1 {
 
 }
 
-#counter {
+.counter {
   color: red;
   font-size: 50px;
   font-weight: 800;
@@ -135,7 +135,7 @@ margin: 0;
     width: 100%;
   }
 
-  #counter {
+  .counter {
     color: red;
     width: 20%;
     position:absolute;
