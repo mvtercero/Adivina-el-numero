@@ -84,7 +84,7 @@ flex-direction: column;
 }
 
 
-.button-name {
+.buttonName {
 width: 40%;
 padding-left: 30px;
 padding-right: 30px;
@@ -108,9 +108,17 @@ span {
 
 /*Aside*/
 
+h2 {
+  margin-left: 50px;
+}
+
 .ranking {
   width: 30%;
   border-left: 1px solid black;
+}
+
+.rankingList {
+  margin-left: 60px;
 }
 
 #player {

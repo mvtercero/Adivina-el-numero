@@ -60,16 +60,22 @@ function checkNumber(){
 
 // cuando el jugador escriba su nombre y pulse en guardar, almacenaremos el nombre del jugador y el número de intentos en una estructura de datos; recomendamos usar un objeto para almacenar la información de cada elemento del histórico (nombre e intentos)
 
-var player= document.querySelector('rankingList');
+var buttonName= document.querySelector('.buttonName'); //--boton de nombre
+buttonName.addEventListener('click',nameRanking);
 
-elementList.innerHTML
+var user= document.querySelector('.nameUser'); //---nombre jugador
 
-var user = {
-  firstname: "Elena",
-  firstname2: "Irene",
-  lastname: "Veiga",
-  age: 32,
-  job: job,}
+var playerList= document.querySelector('.rankingList'); //---ul
+
+
+// Tengo que incluir el nombre del jugador y los intentos en la ul, li
+
+function nameRanking () {
+  playerList.innerHTML+= '<li>' + user.value + ' - ' + counterAcumulator + ' intentos' + '</li>';
+}
+
+
+
 
 
 
