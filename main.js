@@ -1,38 +1,38 @@
 'use strict';
 
-// generar un número aleatorio con la ayuda de Math.random y Math.ceil
-// al pulsar el botón de prueba comparamos el número que el usuario ha escrito en el input con el número aleatorio, y pintamos el feedback correspondiente en la pantalla ("demasiado alto", "demasiado bajo", "acertado")
-// actualizamos el contador de intentos cada que el usuario pruebe
+//NÚMERO AL AZAR
 
-// Número al azar
-
+// Genero un número aleatorio con la ayuda de Math.random y Math.ceil
 
 function getRandomArbitrary(min, max) {
 return Math.ceil(Math.random() * (max - min)) + min;
 }
-
 var numberRandom = getRandomArbitrary(1,100);
 
-// Cuando el usuario pulsa el botón de prueba, se compara el número del input con el número al azar
+//JUEGO BÁSICO MÁS CONTADOR
+
+// ENUNCIADO--> Cuando el usuario pulsa el botón de prueba, se compara el número del input con el número al azar.
+//Para hacer esto, hay que crear una función call-back. Mi función call-back se llama checkNumber. Primero he localizado en el DOM el elemento sobre el que quiero escuchar el event (botón prueba=buttonNumber) y después he creado un método addEventListener.
 
 var buttonNumber = document.querySelector('.buttonNumber');
 buttonNumber.addEventListener('click', checkNumber);
 
+// He llamado a todos los elementos que necesito para la primera parte del ejercicio y los he guardado en variables. El número que introduce el usuario es un string, para poder comparar necesito que sea un número y he usado un parseInt dentro de la función checkNumber.
 
-
-// Para comparar el valor del imput value hay que convertirlo a número con parseInt.
 var inputUserNumber = document.querySelector ('#cellNumber');
 
-// se compara el número del input con el número al azar. Si es mayor la pantalla muestra ("demasiado alto") si es menor, la pantalla muestra "demasiado bajo", si es igual la pantalla muestra "acertado")
-
-// var inputUserNumber = document.querySelector ('#cellNumber');
-// inputUserNumber.addEventListener ('click', checkNumber);
+// ENUNCIADO---> En rojo en la esquina superior derecha aparece el número de intentos realizados.
+// Para hacer esto he creado un contador con una variable que parte de 0 (var counterAcumulator) y se suma a sí misma dentro de la función checkNumber.
 
 var textClue = document.querySelector ('.clue-cell');
 var counterPlus= document.querySelector ('.counter');
 var counterAcumulator= 0;
 
-// En rojo en la esquina superior derecha aparece el número de intentos realizados. Cuando consigue acertar, aparece una sección sobre las pistas para introducir el nombre y guardar la puntuación en el histórico.
+// ENUNCIADO--> se compara el número del input con el número al azar. Si es mayor la pantalla muestra ("demasiado alto") si es menor, la pantalla muestra "demasiado bajo", si es igual la pantalla muestra "acertado")
+// Para hacer esto he creado un if, else if dentro de la función checkNumber.
+
+// ENUNCIADO--> Cuando el jugador consigue acertar, aparece una sección sobre las pistas para introducir el nombre y guardar la puntuación en el histórico.
+// Dentro del segundo else if deshabilito con remove la class hidden sobre el elemento form-name para que aparezca.
 
 function checkNumber(){
   counterAcumulator= counterAcumulator+1;
@@ -53,28 +53,25 @@ function checkNumber(){
   alert (numberRandom);
 };
 
-// En rojo en la esquina superior derecha aparece el número de intentos realizados. Cuando consigue acertar, aparece una sección sobre las pistas para introducir el nombre y guardar la puntuación en el histórico.
+//HISTÓRICO Y RESET DE INPUTS
 
+// ENUNCIADO--> cuando el jugador escriba su nombre y pulse en guardar, almacenaremos el nombre del jugador y el número de intentos en una estructura de datos; recomendamos usar un objeto para almacenar la información de cada elemento del histórico (nombre e intentos)
 
-// cuando el jugador escriba su nombre y pulse en guardar, almacenaremos el nombre del jugador y el número de intentos en una estructura de datos; recomendamos usar un objeto para almacenar la información de cada elemento del histórico (nombre e intentos)
+//En esta parte he creado una nueva función call-back que se llama nameRanking. También he llamado a los elementos y los he guardado en variables. Dentro de la función, con el innerHTML de la ul consigo introducir nombre del jugador y el número de intentos.
 
 var buttonName= document.querySelector('.buttonName'); //--boton de nombre
 buttonName.addEventListener('click',nameRanking);
 
-var user= document.querySelector('.nameUser'); //---nombre jugador
+var user= document.querySelector('.nameUser'); //---input nombre jugador
 
 var playerList= document.querySelector('.rankingList'); //---ul
 
 
-// Tengo que incluir el nombre del jugador y los intentos en la ul, li
-//se oculta la sección para introducir el nombre
-// se genera un nuevo número aleatorio
-// se pone el contador de intentos a 0
-// se limpia el campo de feedback
-// se limpian los inputs
+// ENUNCIADO-->una vez guardado en el histórico, automáticamente la sección de histórico se repinta para mostrar los nuevos datos, después de lo anterior, también automáticamente, se prepara el juego para una nueva partida:se oculta la sección para introducir el nombre: se genera un nuevo número aleatorio, se pone el contador de intentos a 0, se limpia el campo de feedback, se limpian los inputs.
+
+//He creado una variable para guardar el contador reseteado, también he habilitado la class hidden para que la sección del nombre se oculte, he vuelto a poner la función de número aleatorio y he dejado un string vacío para la variables de los inputs y una nueva string para el textclue (texto azul de las pistas)
 
 var resetCounter= document.querySelector ('.counter');
-
 
 function nameRanking () {
   playerList.innerHTML+= '<li>' + user.value + ' - ' + counterAcumulator + ' intentos' + '</li>';
@@ -87,32 +84,3 @@ function nameRanking () {
   user.value="";
   textClue.innerHTML= "Escribe un número y dale a <span>Prueba</span>";
 }
-
-
-
-
-
-
-
-
-
-// HISTÓRICO
-
-// <form>
-//   <input id="name" type="text">
-//   <input id="name" type= "submit" value="Guardar nombre">
-//  </form>
-//  <ul>
-//  </ul>
-// <script>
-// var button= document.querySelector ('#button');
-// var input= document.querySelector ('#name');
-// var list= document.querySelector('ul');
-// button.addEventListener ('click', function (event)){
-// event.preventDefault ();
-// var li = document.createElement ('li');
-// li.textContent = input.value;
-// list.appendChild(li);
-// input.value= '';
-// });
-// </script>
