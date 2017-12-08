@@ -18,9 +18,7 @@ var numberRandom = getRandomArbitrary(1,100);
 var buttonNumber = document.querySelector('.buttonNumber');
 buttonNumber.addEventListener('click', checkNumber);
 
-// function showNumber(){
-//   alert (numberRandom);
-// }
+
 
 // Para comparar el valor del imput value hay que convertirlo a número con parseInt.
 var inputUserNumber = document.querySelector ('#cellNumber');
@@ -69,9 +67,25 @@ var playerList= document.querySelector('.rankingList'); //---ul
 
 
 // Tengo que incluir el nombre del jugador y los intentos en la ul, li
+//se oculta la sección para introducir el nombre
+// se genera un nuevo número aleatorio
+// se pone el contador de intentos a 0
+// se limpia el campo de feedback
+// se limpian los inputs
+
+var resetCounter= document.querySelector ('.counter');
+
 
 function nameRanking () {
   playerList.innerHTML+= '<li>' + user.value + ' - ' + counterAcumulator + ' intentos' + '</li>';
+  var showButtonName= document.querySelector('.form-name');
+  showButtonName.classList.add('hidden');
+  numberRandom = getRandomArbitrary(1,100);
+  counterAcumulator= 0;
+  resetCounter.innerHTML= counterAcumulator;
+  cellNumber.value="";
+  user.value="";
+  textClue.innerHTML= "Escribe un número y dale a <span>Prueba</span>";
 }
 
 
