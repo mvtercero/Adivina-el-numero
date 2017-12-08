@@ -1,0 +1,2 @@
+Este repositorio corresponde al ejercicio de evaluación del Sprint 2 de Adalab. Se trata de un juego de Adivina el número en el que a partir de una función Math se genera un número aleatorio del 1 al 100 y el jugador debe adivinarlo. Tiene un contador que va sumando los intentos y un histórico para guardar el nombre del jugador y las veces que lo ha intentado. 
+https://adalab.github.io/clarke-s2-eval-trd-mvtercero/
