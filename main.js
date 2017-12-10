@@ -50,7 +50,7 @@ function checkNumber(){
     var showButtonName= document.querySelector('.form-name');
     showButtonName.classList.remove('hidden');
   }
-  alert (numberRandom);
+  // alert (numberRandom);
 };
 
 //HISTÓRICO Y RESET DE INPUTS
